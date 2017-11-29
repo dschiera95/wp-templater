@@ -50,6 +50,7 @@ use JO\Module\Templater\Templater;
 use JO\Module\Templater\Templater;
 
 // we should add our new Templater inside action hook
+add_action('plugins_loaded', 'load_templater');
 
 function load_templater()
 {
@@ -121,9 +122,10 @@ function load_templater()
             /**
              * Note: why we separated templates in the top by 'post types' ?
              * because we need this when working on any WP version 4.7 and later
-             * and for WP version 4.6 and older, all this templates will be
-             * merged, not like WP version 4.7 and later, which we add templates
-             * only for exact post type
+             * which custom templates supported post types and for WP version 
+             * 4.6 and older, all this templates will be merged, because we
+             * working on 'page' enough, not like WP version 4.7 and later,
+             * which we add templates only for exact post type.
              */
 
         )
@@ -132,8 +134,6 @@ function load_templater()
     )->register();
 
 }
-
-add_action('plugins_loaded', 'load_templater');
 
 
 ```
