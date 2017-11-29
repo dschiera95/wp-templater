@@ -89,6 +89,7 @@ class Templater
      *
      * $templates = array(
      *     'template_file.php' => 'template_name',
+     *     'my_post_type/sub-folder/template_file.php' => 'template_name',
      * );
      *
      * @since 1.0.0

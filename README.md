@@ -1,7 +1,7 @@
 # :zap: Templater
 > WordPress module to add custom ( page and post type ) templates with plugins.
 
-[![Build Status](https://travis-ci.com/mohamdio/wp-templater.svg?token=bRxzrnGmzUbSj8ogmJVZ&branch=master)](https://travis-ci.com/mohamdio/wp-templater) [![License: GPL-2.0+](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![Build Status](https://travis-ci.org/mohamdio/wp-templater.svg?branch=master)](https://travis-ci.org/mohamdio/wp-templater) [![License: GPL-2.0+](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Installation
 
