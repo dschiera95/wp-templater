@@ -40,3 +40,4 @@ Temporary Items
 
 # ignore this test file which using as a plugin
 /templater.php
+/templates/
