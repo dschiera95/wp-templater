@@ -9,15 +9,15 @@ namespace JO\Module\Templater;
  * - handle class methods and added new functionality.
  * - you can now define your 'Templater' $settings and $templates outside the class.
  * - you can override final custom template file using filter outside the class
- *   @see  Templater.php#L359 or see details in README.md
+ *   @see  Templater.php#L375 or see details in README.md
  * - create composer package.
  * - support any post type cusom template.
  *
  * - new updated copyright:
  * @package   Templater
- * @author    mohamdio [jozoor]
- * @link      https://jozoor.com
- * @copyright 2017 mohamdio [jozoor]
+ * @author    mohamdio [jozoor.com]
+ * @link      https://github.com/mohamdio/wp-templater
+ * @copyright 2017 mohamdio [jozoor.com]
  * @license   GPL-2.0+
  * @version   1.0.0
  *
