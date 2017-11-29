@@ -6,4 +6,3 @@ tests/ export-ignore
 CHANGELOG.md export-ignore
 LICENSE export-ignore
 phpunit.xml export-ignore
-README.md export-ignore
