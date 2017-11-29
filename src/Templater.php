@@ -88,8 +88,10 @@ class Templater
      * Add and set our templates.
      *
      * $templates = array(
-     *     'template_file.php' => 'template_name',
-     *     'my_post_type/sub-folder/template_file.php' => 'template_name',
+     *     'post_type' => array(
+     *         'template_file.php' => 'template_name',
+     *         'sub-folder/template_file.php' => 'template_name',
+     *     ),
      * );
      *
      * @since 1.0.0
@@ -100,13 +102,47 @@ class Templater
     public function add($templates = array())
     {
 
+        // get current WP version
+        global $wp_version;
+
         // return the object if something wrong
         if (!is_array($templates)) {
             return $this;
         }
 
-        // set templates
-        $this->templates = $templates;
+        /**
+         * Handle our new templates.
+         */
+
+        // save new templates
+        $new_templates = array();
+
+        // handle templates for WP version 4.6 and older
+        if (version_compare($wp_version, '4.7', '<')) {
+
+            foreach ($templates as $type => $custom_templates) {
+
+                if (!empty($custom_templates) && is_array($custom_templates)) {
+
+                    // merge all post types templates
+                    foreach ($custom_templates as $template_file => $template_name) {
+                        $new_templates[$template_file] = $template_name;
+                    }
+
+                }
+
+            } // end foreach $templates
+
+        } else {
+            // handle templates for WP version 4.7 and later
+
+            // pass array as normal
+            $new_templates = $templates;
+
+        } // end check WP version
+
+        // set our new templates
+        $this->templates = $new_templates;
 
         // return the object
         return $this;
@@ -141,9 +177,14 @@ class Templater
         } else {
             // for WP version 4.7 and later
 
-            add_filter(
-                'theme_page_templates', array($this, 'add_new_template')
-            );
+            // add filter per post type
+            foreach ($this->templates as $post_type => $custom_templates) {
+
+                add_filter(
+                    'theme_' . $post_type . '_templates', array($this, 'add_new_template')
+                );
+
+            }
 
         } // end check WP version
 
@@ -175,8 +216,19 @@ class Templater
     public function add_new_template($posts_templates)
     {
 
-        // merge our new templates with default template
-        $posts_templates = array_merge($posts_templates, $this->templates);
+        // get new templates per post type
+        $new_templates = array();
+        foreach ($this->templates as $post_type => $custom_templates) {
+
+            // we are in exact post type?
+            if ($post_type === get_post_type()) {
+                $new_templates = $custom_templates;
+            }
+
+        }
+
+        // merge our new templates with default templates
+        $posts_templates = array_merge($posts_templates, $new_templates);
 
         // return default with new templates
         return $posts_templates;
@@ -237,6 +289,9 @@ class Templater
     public function view_template($template)
     {
 
+        // get current WP version
+        global $wp_version;
+
         /**
          * return the search template if we're searching
          * (instead of the template for the first result)
@@ -253,9 +308,37 @@ class Templater
             return $template;
         }
 
+        /**
+         * Handle templates array upon wp version.
+         */
+
+        // save our new templates
+        $new_templates = array();
+
+        // for WP version 4.6 and older
+        if (version_compare($wp_version, '4.7', '<')) {
+
+            // pass array as normal
+            $new_templates = $this->templates;
+
+        } else {
+            // for WP version 4.7 and later
+
+            // add new templates per post type
+            foreach ($this->templates as $post_type => $custom_templates) {
+
+                // we are in exact post type?
+                if ($post_type === get_post_type()) {
+                    $new_templates = $custom_templates;
+                }
+
+            }
+
+        } // end check WP version
+
         // return default template if we don't have a custom one defined
         if (!isset(
-            $this->templates[get_post_meta($post->ID, '_wp_page_template', true)])
+            $new_templates[get_post_meta($post->ID, '_wp_page_template', true)])
         ) {
             return $template;
         }
