@@ -45,6 +45,99 @@ use JO\Module\Templater\Templater;
 
 ## Usage
 
+```php
+
+use JO\Module\Templater\Templater;
+
+// we should add our new Templater inside action hook
+
+function load_templater()
+{
+
+    // setup our templater
+    $my_templater = new Templater(
+        array(
+            // YOUR_PLUGIN_DIR or plugin_dir_path(__FILE__)
+            'plugin_directory'          => plugin_dir_path(__FILE__),
+            // should end with _ > prefix_
+            'plugin_prefix'             => 'plugin_prefix_',
+            // templates directory inside your plugin
+            'plugin_template_directory' => 'templates',
+        )
+    );
+
+
+    // add our new custom templates
+    $my_templater->add(
+
+        // array of available templates
+        array(
+
+            /**
+             * default usage:
+             * 'post_type_name' => array(
+             *      'template_file.php' => 'template_name',
+             *      or
+             *      'path/to/template_file.php' => 'template_name',
+             * ),
+             *
+             * Note: all this files should be inside your 
+             * 'plugin_template_directory' => 'templates',
+             * so this is parent directory > 'templates/path/template_file.php'
+             */
+            
+            // add 'post' type custom templates
+            'post' => array(
+                // just file without any sub folders
+                'post-template.php' => 'Post Custom Template',
+                // with sub folders
+                'path/to/post-template.php' => 'Post Custom Template',
+            ),
+
+            // add 'page' type custom templates
+            'post' => array(
+                // just file without any sub folders
+                'page-template.php' => 'Post Custom Template',
+                // with sub folders
+                'path/to/page-template.php' => 'Post Custom Template',
+            ),
+
+            // add 'custom_post_type' type custom templates, for ex: product
+            'product' => array(
+                // just file without any sub folders
+                'product-template.php' => 'Post Custom Template',
+                // with sub folders
+                'path/to/product-template.php' => 'Post Custom Template',
+            ),
+
+            // ..etc
+
+            /**
+             * Note: you can name your template file anything you like
+             * i mean you shouldn't add post type name in template name, like
+             * 'post-template.php' < this just for show you examples
+             */
+
+            /**
+             * Note: why we separated templates in the top by 'post types' ?
+             * because we need this when working on any WP version 4.7 and later
+             * and for WP version 4.6 and older, all this templates will be
+             * merged, not like WP version 4.7 and later, which we add templates
+             * only for exact post type
+             */
+
+        )
+
+    // here we actually will add all this new templates.
+    )->register();
+
+}
+
+add_action('plugins_loaded', 'load_templater');
+
+
+```
+
 
 ## Author
 
