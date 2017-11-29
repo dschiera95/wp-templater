@@ -46,7 +46,6 @@ use JO\Module\Templater\Templater;
 ## Usage
 
 
-
 ## Author
 
 **Mohamed Abd Elhalim**
