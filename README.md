@@ -48,7 +48,8 @@ use JO\Module\Templater\Templater;
 In this module/package i improved the @source class [PageTemplater](https://github.com/wpexplorer/page-templater) created by [wpexplorer](https://github.com/wpexplorer), which i added this features:
 
 - handle class methods and added new functionality.
-- you can now define your 'Templater' $settings and $templates outside the class.
+- you can now define your 'Templater' `$settings` and `$templates` outside the class.
+    - @see [Setup Templater](#usage)
 - you can override final custom template file using filter outside the class
     - @see [Templater.php](/src/Templater.php#L375)
 - create composer package.
@@ -59,6 +60,10 @@ In this module/package i improved the @source class [PageTemplater](https://gith
 ```php
 
 use JO\Module\Templater\Templater;
+
+/**
+ * How to use Templater
+ */
 
 // we should add our new Templater inside action hook
 add_action('plugins_loaded', 'load_templater');
@@ -107,19 +112,19 @@ function load_templater()
             ),
 
             // add 'page' type custom templates
-            'post' => array(
+            'page' => array(
                 // just file without any sub folders
-                'page-template.php' => 'Post Custom Template',
+                'page-template.php' => 'Page Custom Template',
                 // with sub folders
-                'path/to/page-template.php' => 'Post Custom Template',
+                'path/to/page-template.php' => 'Page Custom Template',
             ),
 
             // add 'custom_post_type' type custom templates, for ex: product
             'product' => array(
                 // just file without any sub folders
-                'product-template.php' => 'Post Custom Template',
+                'product-template.php' => 'Product Custom Template',
                 // with sub folders
-                'path/to/product-template.php' => 'Post Custom Template',
+                'path/to/product-template.php' => 'Product Custom Template',
             ),
 
             // ..etc
@@ -143,6 +148,26 @@ function load_templater()
 
     // here we actually will add all this new templates.
     )->register();
+
+}
+
+
+/**
+ * How to override final custom template file in themes or plugins
+ */
+
+add_filter('plugin_prefix_override_plugin_custom_template', 'override_plugin_custom_template');
+
+function override_plugin_custom_template($template_file)
+{
+
+    // add another template file here
+    $template_file = plugin_dir_path(__FILE__) . 'templates/my_override_template.php';
+
+    // or do whatever .. 
+
+    // return new updated template or default template 
+    return $template_file;
 
 }
 
