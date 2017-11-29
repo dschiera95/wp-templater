@@ -5,7 +5,7 @@ namespace JO\Module\Templater;
 /**
  * Add custom ( page and post type ) templates with plugins.
  *
- * Here i improved the source class 'PageTemplater':
+ * Here i improved the @source class 'PageTemplater':
  * - handle class methods and added new functionality.
  * - you can now define your 'Templater' $settings and $templates outside the class.
  * - you can override final custom template file using filter outside the class
@@ -13,7 +13,15 @@ namespace JO\Module\Templater;
  * - create composer package.
  * - support any post type cusom template.
  *
- * @source    copyright
+ * - new updated copyright:
+ * @package   Templater
+ * @author    mohamdio [jozoor]
+ * @link      https://jozoor.com
+ * @copyright 2017 mohamdio [jozoor]
+ * @license   GPL-2.0+
+ * @version   1.0.0
+ *
+ * - source copyright:
  * @package   page-templater
  * @author    wpexplorer
  * @link      https://github.com/wpexplorer/page-templater
