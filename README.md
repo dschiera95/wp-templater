@@ -49,7 +49,7 @@ In this module/package i improved the @source class [PageTemplater](https://gith
 - you can now define your 'Templater' `$settings` and `$templates` outside the class.
     - @see [Setup Templater](#usage)
 - you can override final custom template file using filter outside the class
-    - @see [Templater.php](/src/Templater.php#L375)
+    - @see [Templater.php](/src/Templater.php#L386)
 - create composer package.
 - support any post type cusom template.
 
