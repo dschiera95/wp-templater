@@ -1,7 +1,7 @@
 # :zap: Templater
 > WordPress module to add custom ( page and post type ) templates with plugins.
 
-[![Build Status](https://travis-ci.org/mohamdio/wp-templater.svg?branch=master)](https://travis-ci.org/mohamdio/wp-templater) [![Latest Stable Version](https://poser.pugx.org/jozoor/wp-templater/v/stable)](https://packagist.org/packages/jozoor/wp-templater) [![Total Downloads](https://poser.pugx.org/jozoor/wp-templater/downloads)](https://packagist.org/packages/jozoor/wp-templater) [![Latest Unstable Version](https://poser.pugx.org/jozoor/wp-templater/v/unstable)](https://packagist.org/packages/jozoor/wp-templater) [![License](https://poser.pugx.org/jozoor/wp-templater/license)](https://packagist.org/packages/jozoor/wp-templater)
+[![Build Status](https://travis-ci.org/mohamdio/wp-templater.svg?branch=master)](https://travis-ci.org/mohamdio/wp-templater) [![Latest Stable Version](https://poser.pugx.org/jozoor/wp-templater/v/stable)](https://packagist.org/packages/jozoor/wp-templater) [![Total Downloads](https://poser.pugx.org/jozoor/wp-templater/downloads)](https://packagist.org/packages/jozoor/wp-templater) [![License](https://poser.pugx.org/jozoor/wp-templater/license)](https://packagist.org/packages/jozoor/wp-templater)
 
 ## Installation
 
