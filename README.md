@@ -51,7 +51,7 @@ In this module/package i improved the @source class [PageTemplater](https://gith
 - you can override final custom template file using filter outside the class
     - @see [Templater.php](/src/Templater.php#L386)
 - create composer package.
-- support any post type cusom template.
+- support any post type custom template.
 
 ## Usage
 
