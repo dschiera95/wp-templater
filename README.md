@@ -7,7 +7,7 @@
 
 #### :heavy_exclamation_mark: Minimum requirements
 
-**PHP:** 5.3+
+**PHP:** 5.6
 
 #### :heavy_minus_sign: Install with composer
 
