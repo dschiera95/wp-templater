@@ -169,7 +169,6 @@ function override_plugin_custom_template($template_file)
 
 }
 
-
 ```
 
 
