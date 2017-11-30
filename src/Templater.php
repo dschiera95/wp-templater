@@ -383,18 +383,16 @@ class Templater
          *
          * whatever this filter is (optional).
          */
-        $file = apply_filters(
+        $plugin_template = apply_filters(
             // filter tag name: {plugin_prefix_}override_plugin_custom_template'
             $this->plugin_prefix . 'override_plugin_custom_template',
             // full path of custom template file: $template_file
             $this->plugin_directory . $this->plugin_template_directory . '/' . get_post_meta($post->ID, '_wp_page_template', true)
         );
 
-        // just to be safe, we check if the file exist first
-        if (file_exists($file)) {
-            return $file;
-        } else {
-            echo $file;
+        // our new plugin template exists? use it
+        if (file_exists($plugin_template)) {
+            return $plugin_template;
         }
 
         // return template
