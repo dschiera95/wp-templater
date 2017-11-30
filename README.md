@@ -7,9 +7,7 @@
 
 #### :heavy_exclamation_mark: Minimum requirements
 
-**PHP:** 5.6
-
-**WordPress:** 4.6
+**PHP:** 5.3+
 
 #### :heavy_minus_sign: Install with composer
 
@@ -138,7 +136,7 @@ function load_templater()
             /**
              * Note: why we separated templates in the top by 'post types' ?
              * because we need this when working on any WP version 4.7 and later
-             * which custom templates supported post types and for WP version 
+             * which custom templates supported post types, but for WP version 
              * 4.6 and older, all this templates will be merged, because we
              * working on 'page' enough, not like WP version 4.7 and later,
              * which we add templates only for exact post type.
