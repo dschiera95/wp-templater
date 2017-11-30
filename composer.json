@@ -1,11 +1,9 @@
 {
     "name": "jozoor/wp-templater",
     "description": "WordPress module to add custom ( page and post type ) templates with plugins.",
-    "version": "1.0.0",
     "keywords": ["wordpress", "custom", "page", "post type", "templates"],
     "homepage": "https://github.com/mohamdio/wp-templater",
     "license": "GPL-2.0+",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Mohamed Abd Elhalim",
