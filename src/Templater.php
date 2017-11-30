@@ -92,9 +92,20 @@ class Templater
         // set templater settings
         if (!empty($settings) || is_array($settings)) {
 
-            $this->plugin_directory          = $settings['plugin_directory'];
-            $this->plugin_prefix             = $settings['plugin_prefix'];
-            $this->plugin_template_directory = $settings['plugin_template_directory'];
+            // set plugin directory
+            if (isset($settings['plugin_directory'])) {
+                $this->plugin_directory = $settings['plugin_directory'];
+            }
+
+            // set plugin prefix
+            if (isset($settings['plugin_prefix'])) {
+                $this->plugin_prefix = $settings['plugin_prefix'];
+            }
+
+            // set plugin template directory
+            if (isset($settings['plugin_template_directory'])) {
+                $this->plugin_template_directory = $settings['plugin_template_directory'];
+            }
 
         }
 
