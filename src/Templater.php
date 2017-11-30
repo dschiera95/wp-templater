@@ -395,7 +395,7 @@ class Templater
             return $plugin_template;
         }
 
-        // return template
+        // return default template
         return $template;
 
     }
