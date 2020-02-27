@@ -208,9 +208,7 @@ class Templater
             foreach ($this->templates as $post_type => $custom_templates) {
 
                 add_filter(
-                    'theme_' . $post_type . '_templates', array($this, 'add_new_template'),
-	                10,
-	                4
+                    'theme_' . $post_type . '_templates', array($this, 'add_new_template')
                 );
 
             }
@@ -242,15 +240,15 @@ class Templater
      * @param array $posts_templates
      * @return array
      */
-    public function add_new_template($posts_templates, $theme, $post, $post_type)
+    public function add_new_template($posts_templates)
     {
 
         // get new templates per post type
         $new_templates = array();
-        foreach ($this->templates as $templates_post_type => $custom_templates) {
+        foreach ($this->templates as $post_type => $custom_templates) {
 
             // we are in exact post type?
-            if ($templates_post_type === $post_type) {
+            if ($post_type === get_post_type()) {
                 $new_templates = $custom_templates;
             }
 
